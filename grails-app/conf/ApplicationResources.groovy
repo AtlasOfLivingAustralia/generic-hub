@@ -6,7 +6,7 @@ modules = {
     // Define your skin module here - it must 'dependsOn' either bootstrap (ALA version) or bootstrap2 (unmodified) and core
 
     generic {
-        dependsOn 'bootstrap', 'hubCore' //
+        dependsOn 'bootstrap2', 'hubCore' //
         resource url: [dir:'css', file:'generic.css']
     }
 

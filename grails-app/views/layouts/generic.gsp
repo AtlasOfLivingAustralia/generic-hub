@@ -10,13 +10,16 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
     <title><g:layoutTitle /></title>
-    <r:require module="generic" />
+    <r:require modules="bootstrap2, hubCore" />
     <style type="text/css">
     body {
         background-color: #ffffff !important;
     }
     #breadcrumb {
         margin-top: 10px;
+    }
+    #main-content #searchInfoRow #customiseFacetsButton > .dropdown-menu {
+        background-color: #ffffff;
     }
     #footer {
         margin: 20px;
@@ -99,8 +102,8 @@
             </button>
             <a class="brand" href="#">${raw(orgNameLong)}</a>
             <div class="nav-collapse collapse">
-                <p class="navbar-text pull-right">
-                    Logged in as <a href="#" class="navbar-link">${username?:'unknown'}</a>
+                <p class="hide navbar-text pull-right">
+                    Logged in as <a href="#" class="navbar-link">${username}</a>
                 </p>
                 <ul class="nav">
                     <li class="active"><a href="#">Home</a></li>

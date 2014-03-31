@@ -37,6 +37,7 @@ println "[${appName}] (*) grails.config.locations = ${grails.config.locations}"
 
 skin.orgNameLong = "Generic Data Portal"
 biocache.baseUrl = "http://biocache-test.ala.org.au/ws"
+security.cas.bypass = true
 
 /******************************************************************************\
  *  CAS SETTINGS

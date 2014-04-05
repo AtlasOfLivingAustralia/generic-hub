@@ -6,38 +6,55 @@
 //                             "classpath:${appName}-config.groovy",
 //                             "file:${userHome}/.grails/${appName}-config.properties",
 //                             "file:${userHome}/.grails/${appName}-config.groovy"]
+
 // if (System.properties["${appName}.config.location"]) {
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
 
 grails.project.groupId = "au.org.ala" // change this to alter the default package name and Maven publishing destination
 
-//println "default_config = ${default_config?:'not set'}"
-//def ENV_NAME = "${appName.toUpperCase()}_CONFIG"
-//default_config = "/data/${appName}/config/${appName}-config.properties"
-//if(!grails.config.locations || !(grails.config.locations instanceof List)) {
-//    grails.config.locations = []
-//}
-//
-//if(System.getenv(ENV_NAME) && new File(System.getenv(ENV_NAME)).exists()) {
-//    println "[${appName}] Including configuration file specified in environment: " + System.getenv(ENV_NAME);
-//    grails.config.locations.add "file:" + System.getenv(ENV_NAME)
-//} else if(System.getProperty(ENV_NAME) && new File(System.getProperty(ENV_NAME)).exists()) {
-//    println "[${appName}] Including configuration file specified on command line: " + System.getProperty(ENV_NAME);
-//    grails.config.locations.add "file:" + System.getProperty(ENV_NAME)
-//} else if(new File(default_config).exists()) {
-//    println "[${appName}] Including default configuration file: " + default_config;
-//    grails.config.locations.add "file:" + default_config
-//} else {
-//    println "[${appName}] No external configuration file defined."
-//}
-//
-println "[${appName}] (*) grails.config.locations = ${grails.config.locations}"
-//println "default_config = ${default_config}"
+println "default_config = ${default_config?:'not set'}"
+def ENV_NAME = "${appName.toUpperCase()}_CONFIG"
+default_config = "/data/${appName}/config/${appName}-config.properties"
+if(!grails.config.locations || !(grails.config.locations instanceof List)) {
+    grails.config.locations = []
+}
 
+if(System.getenv(ENV_NAME) && new File(System.getenv(ENV_NAME)).exists()) {
+    println "[${appName}] Including configuration file specified in environment: " + System.getenv(ENV_NAME);
+    grails.config.locations.add "file:" + System.getenv(ENV_NAME)
+} else if(System.getProperty(ENV_NAME) && new File(System.getProperty(ENV_NAME)).exists()) {
+    println "[${appName}] Including configuration file specified on command line: " + System.getProperty(ENV_NAME);
+    grails.config.locations.add "file:" + System.getProperty(ENV_NAME)
+} else if(new File(default_config).exists()) {
+    println "[${appName}] Including default configuration file: " + default_config;
+    grails.config.locations.add "file:" + default_config
+} else {
+    println "[${appName}] No external configuration file defined."
+}
+
+println "[${appName}] (*) grails.config.locations = ${grails.config.locations}"
+println "default_config = ${default_config}"
+
+/******************************************************************************\
+ *  SKINNING
+\******************************************************************************/
+skin.layout = 'generic'
 skin.orgNameLong = "Generic Data Portal"
-biocache.baseUrl = "http://biocache-test.ala.org.au/ws"
-security.cas.bypass = true
+skin.orgNameShort = "Occurrences"
+// whether crumb trail should include a home link that is external to this webabpp - ala.baseUrl is used if true
+skin.includeBaseUrl = true
+skin.headerUrl = "classpath:resources/generic-header.jsp" // can be external URL
+skin.footerUrl = "classpath:resources/generic-footer.jsp" // can be external URL
+skin.fluidLayout = true // true or false
+
+/******************************************************************************\
+ *  EXTERNAL SERVERS
+\******************************************************************************/
+
+/******************************************************************************\
+ *  MISC
+\******************************************************************************/
 
 /******************************************************************************\
  *  CAS SETTINGS
@@ -45,18 +62,17 @@ security.cas.bypass = true
  *  NOTE: Some of these will be ignored if default_config exists
 \******************************************************************************/
 
-//serverName = 'http://dev.ala.org.au:8080'
-//security.cas.appServerName = "http://dev.ala.org.au:8080"
-//security.cas.casServerName = 'https://auth.ala.org.au'
-//security.cas.uriFilterPattern = '/admin, /admin/.*'
-//security.cas.authenticateOnlyIfLoggedInPattern = "/occurrences/(?!.+userAssertions|facet.+).+,/explore/your-area"
-//ssecurity.cas.uriExclusionFilterPattern = '/images.*,/css.*,/js.*'
-//security.cas.loginUrl = 'https://auth.ala.org.au/cas/login'
-//security.cas.logoutUrl = 'https://auth.ala.org.au/cas/logout'
-//security.cas.casServerUrlPrefix = 'https://auth.ala.org.au/cas'
-//security.cas.bypass = false // set to true for non-ALA deployment
-//auth.admin_role = "ROLE_ADMIN"
-//security.cas.bypass = true
+serverName = 'http://dev.ala.org.au:8080'
+security.cas.appServerName = "http://dev.ala.org.au:8080"
+security.cas.casServerName = 'https://auth.ala.org.au'
+security.cas.uriFilterPattern = '/admin, /admin/.*'
+security.cas.authenticateOnlyIfLoggedInPattern = "/occurrences/(?!.+userAssertions|facet.+).+,/explore/your-area"
+ssecurity.cas.uriExclusionFilterPattern = '/images.*,/css.*,/js.*'
+security.cas.loginUrl = 'https://auth.ala.org.au/cas/login'
+security.cas.logoutUrl = 'https://auth.ala.org.au/cas/logout'
+security.cas.casServerUrlPrefix = 'https://auth.ala.org.au/cas'
+security.cas.bypass = false // set to true for non-ALA deployment
+auth.admin_role = "ROLE_ADMIN"
 
 // The ACCEPT header will not be used for content negotiation for user agents containing the following strings (defaults to the 4 major rendering engines)
 grails.mime.disable.accept.header.userAgents = ['Gecko', 'WebKit', 'Presto', 'Trident']
@@ -131,10 +147,10 @@ grails.hibernate.cache.queries = false
 environments {
     development {
         grails.serverURL = 'http://dev.ala.org.au:8080/' + appName
-//        serverName='http://dev.ala.org.au:8080'
-//        security.cas.appServerName = serverName
-//        security.cas.contextPath = "/${appName}"
-        grails.resources.debug = true // cache & resources plugins
+        serverName='http://dev.ala.org.au:8080'
+        security.cas.appServerName = serverName
+        security.cas.contextPath = "/${appName}"
+        //grails.resources.debug = true // cache & resources plugins
     }
     test {
         grails.serverURL = 'http://biocache-test.ala.org.au'
@@ -169,9 +185,10 @@ log4j = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
     debug  'grails.app.controllers',
-            'grails.app.services',
+           'grails.app.services',
             //'grails.app.taglib',
             //'grails.app',
             'au.org.ala.cas',
-            'au.org.ala.biocache.hubs'
+            'au.org.ala.biocache.hubs',
+            'au.org.ala.biocache.hubs.OccurrenceTagLib'
 }

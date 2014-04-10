@@ -13,20 +13,11 @@
 
 grails.project.groupId = "au.org.ala" // change this to alter the default package name and Maven publishing destination
 
-println "default_config = ${default_config?:'not set'}"
-def ENV_NAME = "${appName.toUpperCase()}_CONFIG"
 default_config = "/data/${appName}/config/${appName}-config.properties"
 if(!grails.config.locations || !(grails.config.locations instanceof List)) {
     grails.config.locations = []
 }
-
-if(System.getenv(ENV_NAME) && new File(System.getenv(ENV_NAME)).exists()) {
-    println "[${appName}] Including configuration file specified in environment: " + System.getenv(ENV_NAME);
-    grails.config.locations.add "file:" + System.getenv(ENV_NAME)
-} else if(System.getProperty(ENV_NAME) && new File(System.getProperty(ENV_NAME)).exists()) {
-    println "[${appName}] Including configuration file specified on command line: " + System.getProperty(ENV_NAME);
-    grails.config.locations.add "file:" + System.getProperty(ENV_NAME)
-} else if(new File(default_config).exists()) {
+if (new File(default_config).exists()) {
     println "[${appName}] Including default configuration file: " + default_config;
     grails.config.locations.add "file:" + default_config
 } else {
@@ -62,17 +53,18 @@ skin.fluidLayout = true // true or false
  *  NOTE: Some of these will be ignored if default_config exists
 \******************************************************************************/
 
-serverName = 'http://dev.ala.org.au:8080'
-security.cas.appServerName = "http://dev.ala.org.au:8080"
-security.cas.casServerName = 'https://auth.ala.org.au'
-security.cas.uriFilterPattern = '/admin, /admin/.*'
-security.cas.authenticateOnlyIfLoggedInPattern = "/occurrences/(?!.+userAssertions|facet.+).+,/explore/your-area"
-ssecurity.cas.uriExclusionFilterPattern = '/images.*,/css.*,/js.*'
-security.cas.loginUrl = 'https://auth.ala.org.au/cas/login'
-security.cas.logoutUrl = 'https://auth.ala.org.au/cas/logout'
-security.cas.casServerUrlPrefix = 'https://auth.ala.org.au/cas'
-security.cas.bypass = false // set to true for non-ALA deployment
-auth.admin_role = "ROLE_ADMIN"
+//serverName = 'http://dev.ala.org.au:8080'
+//security.cas.appServerName = "http://dev.ala.org.au:8080"
+//security.cas.casServerName = 'https://auth.ala.org.au'
+//security.cas.uriFilterPattern = '/admin, /admin/.*'
+//security.cas.authenticateOnlyIfLoggedInPattern = "/occurrences/(?!.+userAssertions|facet.+).+,/explore/your-area"
+//ssecurity.cas.uriExclusionFilterPattern = '/images.*,/css.*,/js.*'
+//security.cas.loginUrl = 'https://auth.ala.org.au/cas/login'
+//security.cas.logoutUrl = 'https://auth.ala.org.au/cas/logout'
+//security.cas.casServerUrlPrefix = 'https://auth.ala.org.au/cas'
+//security.cas.bypass = false // set to true for non-ALA deployment
+//auth.admin_role = "ROLE_ADMIN"
+
 
 // The ACCEPT header will not be used for content negotiation for user agents containing the following strings (defaults to the 4 major rendering engines)
 grails.mime.disable.accept.header.userAgents = ['Gecko', 'WebKit', 'Presto', 'Trident']

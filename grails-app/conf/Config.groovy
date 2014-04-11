@@ -38,32 +38,11 @@ skin.includeBaseUrl = true
 skin.headerUrl = "classpath:resources/generic-header.jsp" // can be external URL
 skin.footerUrl = "classpath:resources/generic-footer.jsp" // can be external URL
 skin.fluidLayout = true // true or false
-
-/******************************************************************************\
- *  EXTERNAL SERVERS
-\******************************************************************************/
+chartsBgColour = "#FFFFFF"
 
 /******************************************************************************\
  *  MISC
 \******************************************************************************/
-
-/******************************************************************************\
- *  CAS SETTINGS
- *
- *  NOTE: Some of these will be ignored if default_config exists
-\******************************************************************************/
-
-//serverName = 'http://dev.ala.org.au:8080'
-//security.cas.appServerName = "http://dev.ala.org.au:8080"
-//security.cas.casServerName = 'https://auth.ala.org.au'
-//security.cas.uriFilterPattern = '/admin, /admin/.*'
-//security.cas.authenticateOnlyIfLoggedInPattern = "/occurrences/(?!.+userAssertions|facet.+).+,/explore/your-area"
-//ssecurity.cas.uriExclusionFilterPattern = '/images.*,/css.*,/js.*'
-//security.cas.loginUrl = 'https://auth.ala.org.au/cas/login'
-//security.cas.logoutUrl = 'https://auth.ala.org.au/cas/logout'
-//security.cas.casServerUrlPrefix = 'https://auth.ala.org.au/cas'
-//security.cas.bypass = false // set to true for non-ALA deployment
-//auth.admin_role = "ROLE_ADMIN"
 
 
 // The ACCEPT header will not be used for content negotiation for user agents containing the following strings (defaults to the 4 major rendering engines)

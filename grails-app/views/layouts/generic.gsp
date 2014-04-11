@@ -91,10 +91,10 @@
     <g:layoutHead />
 </head>
 <body class="${pageProperty(name:'body.class')?:'nav-collections'}" id="${pageProperty(name:'body.id')}" onload="${pageProperty(name:'body.onload')}">
-
+<g:set var="fluidLayout" value="${grailsApplication.config.skin.fluidLayout?.toBoolean()}"/>
 <div class="navbar navbar-inverse navbar-static-top">
     <div class="navbar-inner ">
-        <div class="container">
+        <div class="${fluidLayout?'container-fluid':'container'}">
             <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -115,7 +115,8 @@
     </div><!--/.navbar-inner -->
 </div><!--/.navbar -->
 
-<div class="container" id="main-content">
+
+<div class="${fluidLayout?'container-fluid':'container'}" id="main-content">
     <g:layoutBody />
 </div><!--/.container-->
 

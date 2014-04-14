@@ -5,11 +5,11 @@ class BootStrap {
     def grailsApplication
 
     def init = { servletContext ->
-        log.error "config.security.cas.bypass = ${grailsApplication.config.security.cas.bypass}"
-        log.error "config.skin = ${grailsApplication.config.skin}"
-        log.error "config.security.cas.appServerName = ${grailsApplication.config.security.cas.appServerName}"
-        log.error "config.plugins.proxy = ${grailsApplication.config.plugins.proxy}"
-        log.error "config.test.var = ${grailsApplication.config.test.var}"
+        log.info "config.security.cas.bypass = ${grailsApplication.config.security.cas.bypass}"
+        log.info "config.skin = ${grailsApplication.config.skin}"
+        log.info "config.security.cas.appServerName = ${grailsApplication.config.security.cas.appServerName}"
+        log.info "config.plugins.proxy = ${grailsApplication.config.plugins.proxy}"
+        log.info "config.test.var = ${grailsApplication.config.test.var}"
     }
     def destroy = {
     }

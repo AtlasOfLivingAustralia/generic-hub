@@ -7,7 +7,7 @@
     <meta name="app.version" content="${g.meta(name:'app.version')}"/>
     <meta name="app.build" content="${g.meta(name:'app.build')}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    %{--<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">--}%
 
     <title><g:layoutTitle /></title>
     <r:require modules="bootstrap2, hubCore" />

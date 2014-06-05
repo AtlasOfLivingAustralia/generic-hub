@@ -117,22 +117,22 @@ grails.hibernate.cache.queries = false
 
 environments {
     development {
-        grails.serverURL = 'http://dev.ala.org.au:8080/' + appName
-        serverName='http://dev.ala.org.au:8080'
-        security.cas.appServerName = serverName
-        security.cas.contextPath = "/${appName}"
-        //grails.resources.debug = true // cache & resources plugins
+//        grails.serverURL = 'http://dev.ala.org.au:8080/' + appName
+//        serverName='http://dev.ala.org.au:8080'
+//        security.cas.appServerName = serverName
+//        security.cas.contextPath = "/${appName}"
+        grails.resources.debug = true // cache & resources plugins
     }
     test {
-        grails.serverURL = 'http://biocache-test.ala.org.au'
-        serverName='http://biocache-test.ala.org.au'
-        security.cas.appServerName = serverName
+//        grails.serverURL = 'http://biocache-test.ala.org.au'
+//        serverName='http://biocache-test.ala.org.au'
+//        security.cas.appServerName = serverName
         //security.cas.contextPath = "/${appName}"
     }
     production {
-        grails.serverURL = 'http://biocache.ala.org.au'
-        serverName='http://biocache.ala.org.au'
-        security.cas.appServerName = serverName
+//        grails.serverURL = 'http://biocache.ala.org.au'
+//        serverName='http://biocache.ala.org.au'
+//        security.cas.appServerName = serverName
     }
 }
 
@@ -141,7 +141,21 @@ log4j = {
     // Example of changing the log pattern for the default console appender:
     //
     appenders {
-        console name:'stdout', layout:pattern(conversionPattern: "%d %-5p [%c{1}]  %m%n")
+        environments {
+            production {
+//                rollingFile name: "tomcatLog", maxFileSize: 102400000, file: "/var/log/tomcat6/${appName}.log", threshold: org.apache.log4j.Level.ERROR, layout: pattern(conversionPattern: "%d %-5p [%c{1}] %m%n")
+//                'null' name: "stacktrace"
+                console name: "stdout", layout: pattern(conversionPattern: "%d %-5p [%c{1}]  %m%n"), threshold: org.apache.log4j.Level.WARN
+            }
+            development {
+                console name: "stdout", layout: pattern(conversionPattern: "%d %-5p [%c{1}]  %m%n"), threshold: org.apache.log4j.Level.DEBUG
+            }
+            test {
+//                rollingFile name: "tomcatLog", maxFileSize: 102400000, file: "/tmp/${appName}-test.log", threshold: org.apache.log4j.Level.DEBUG, layout: pattern(conversionPattern: "%d %-5p [%c{1}]  %m%n")
+//                'null' name: "stacktrace"
+                console name: "stdout", layout: pattern(conversionPattern: "%d %-5p [%c{1}]  %m%n"), threshold: org.apache.log4j.Level.INFO
+            }
+        }
     }
 
     root {
@@ -162,7 +176,8 @@ log4j = {
     info   'grails.app'
     debug  'grails.app.controllers',
            'grails.app.services',
-            //'grails.app.taglib',
+           //'grails.app.taglib',
+           'grails.web.pages',
             //'grails.app',
             'au.org.ala.cas',
             'au.org.ala.biocache.hubs',

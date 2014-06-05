@@ -6,8 +6,8 @@ grails.project.work.dir = "target/work"
 grails.project.target.level = 1.6
 grails.project.source.level = 1.6
 grails.project.plugins.dir="plugins"
-grails.project.war.file = "target/${appName}-${appVersion}.war"
-grails.plugin.location.'biocache-hubs' = "../biocache-hubs"
+//grails.project.war.file = "target/${appName}-${appVersion}.war"
+//grails.plugin.location.'biocache-hubs' = "../biocache-hubs"
 
 grails.project.fork = [
     // configure settings for compilation JVM, note that if you alter the Groovy version forked compilation is required
@@ -53,32 +53,15 @@ grails.project.dependency.resolution = {
     }
 
     dependencies {
-        // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
-        // runtime 'mysql:mysql-connector-java:5.1.27'
-        // runtime 'org.postgresql:postgresql:9.3-1100-jdbc41'
     }
 
     plugins {
         // plugins for the build system only
         build ":tomcat:7.0.50"
-
-        // plugins for the compile step
-        //compile ":scaffolding:2.0.1"
         compile ':cache:1.1.1'
         compile ":cache-headers:1.1.6"
-        // plugins needed at runtime but not for compilation
-        //runtime ":hibernate:3.6.10.7" // or ":hibernate4:4.1.11.6"
-        //runtime ":database-migration:1.3.8"
-        //runtime ":jquery:1.10.2.2"
+        runtime ":biocache-hubs:[0.1,]"
         runtime ":resources:1.2.1"
         runtime ":cached-resources:1.0"
-        //runtime ":zipped-resources:1.0"
-        // Uncomment these (or add new ones) to enable additional resources capabilities
-        //runtime ":zipped-resources:1.0.1"
-        //runtime ":cached-resources:1.1"
-        //runtime ":yui-minify-resources:0.1.5"
-        //runtime ":biocache-hubs:[0.1,]"
-        //runtime ":ala-web-theme:0.2.4"
-
     }
 }

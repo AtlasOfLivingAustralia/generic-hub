@@ -6,8 +6,8 @@ grails.project.work.dir = "target/work"
 grails.project.target.level = 1.6
 grails.project.source.level = 1.6
 grails.project.plugins.dir="plugins"
-//grails.project.war.file = "target/${appName}-${appVersion}.war"
-//grails.plugin.location.'biocache-hubs' = "../biocache-hubs"
+grails.project.war.file = "target/${appName}-${appVersion}.war"
+grails.plugin.location.'biocache-hubs' = "../biocache-hubs"
 
 grails.project.fork = [
     // configure settings for compilation JVM, note that if you alter the Groovy version forked compilation is required
@@ -49,6 +49,7 @@ grails.project.dependency.resolution = {
         mavenRepo ("http://maven.ala.org.au/repository") {
             updatePolicy 'always'
         }
+        mavenRepo "http://maven.tmatesoft.com/content/repositories/releases/"
     }
 
     dependencies {
@@ -76,7 +77,7 @@ grails.project.dependency.resolution = {
         //runtime ":zipped-resources:1.0.1"
         //runtime ":cached-resources:1.1"
         //runtime ":yui-minify-resources:0.1.5"
-        runtime ":biocache-hubs:[0.1,]"
+        //runtime ":biocache-hubs:[0.1,]"
         //runtime ":ala-web-theme:0.2.4"
 
     }

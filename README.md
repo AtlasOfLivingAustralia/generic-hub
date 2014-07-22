@@ -6,8 +6,8 @@ is provided by a Grails plugin called [biocache-hubs](http://github.com/AtlasOfL
 create your own custom skinned version of the Biocache webapp, then this is the project you should clone/fork as a starting point.
 
 ## Getting started
-First download and install [Grails](http://www.grails.org/download) (check the `application.properties` file
-to see which version is required). Fork this project to your local machine.
+First download and install [Grails](http://www.grails.org/download) (Note: version **2.3.x** is currently required but check the `application.properties` file
+for the specific version). Fork this project to your local machine.
 
 Then try running the app with the command line:
 

@@ -1,3 +1,4 @@
+### generic-hub   [![Build Status](https://travis-ci.org/AtlasOfLivingAustralia/generic-hub.svg?branch=master)](https://travis-ci.org/AtlasOfLivingAustralia/generic-hub)
 # generic-hub
 
 Generic-hub is a [Grails](http://www.grails.org/) web application that is aimed to be an example implementation of the 

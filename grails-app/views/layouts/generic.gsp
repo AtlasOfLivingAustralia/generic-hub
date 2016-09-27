@@ -9,7 +9,7 @@
     %{--<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">--}%
 
     <title><g:layoutTitle /></title>
-    <r:require modules="bootstrap2, hubCore" />
+    <r:require modules="bootstrap, hubCore" />
     <style type="text/css">
     body {
         background-color: #ffffff !important;

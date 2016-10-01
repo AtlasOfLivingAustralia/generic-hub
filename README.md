@@ -15,10 +15,6 @@ Then try running the app with the command line:
     cd generic-hub
     grails run-app
 
-## Skinning
+## Documentation
 
-To do
-
-## Configuration
-
-To do
+Please see the [ALA documentation](https://github.com/AtlasOfLivingAustralia/documentation/wiki)

@@ -124,7 +124,8 @@ environments {
 //        serverName='http://dev.ala.org.au:8080'
 //        security.cas.appServerName = serverName
 //        security.cas.contextPath = "/${appName}"
-        grails.resources.debug = true // cache & resources plugins
+// Enabling grails.resources.debug breaks EYA dots on map
+//        grails.resources.debug = true // cache & resources plugins
     }
     test {
 //        grails.serverURL = 'http://biocache-test.ala.org.au'
